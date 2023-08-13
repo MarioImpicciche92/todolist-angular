@@ -1,8 +1,8 @@
 import { formatPercent } from '@angular/common';
 import { Component, EventEmitter, Output } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { TodoStatus } from 'src/app/models/enums/todo-status';
-import { Todo } from 'src/app/models/todo';
+import { TodoModel } from 'src/app/models/todo';
 
 @Component({
   selector: 'app-create-todo',
@@ -10,13 +10,13 @@ import { Todo } from 'src/app/models/todo';
   styleUrls: ['./create-todo.component.scss']
 })
 export class CreateTodoComponent {
-  @Output() addedTodo = new EventEmitter<Todo>();
+  @Output() addedTodo = new EventEmitter<TodoModel>();
 
   TodoStatus = TodoStatus;
-  createTodo: FormGroup;
+  createTodoForm: FormGroup;
 
   constructor(private fb: FormBuilder){
-    this.createTodo = this.fb.group({
+    this.createTodoForm = this.fb.group({
       title : new FormControl(""),
       description : new FormControl(""),
       status : new FormControl(TodoStatus.TODO),
@@ -25,8 +25,8 @@ export class CreateTodoComponent {
   }
 
   addTodo(): void {
-    if(this.createTodo.valid){
-      this.addedTodo.emit(this.createTodo.value);
+    if(this.createTodoForm.valid){
+      this.addedTodo.emit(this.createTodoForm.value);
     }
   }
 }

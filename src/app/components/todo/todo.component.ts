@@ -1,5 +1,5 @@
-import { Component, Input } from '@angular/core';
-import { Todo } from 'src/app/models/todo';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { TodoModel } from 'src/app/models/todo';
 
 @Component({
   selector: 'app-todo',
@@ -7,5 +7,10 @@ import { Todo } from 'src/app/models/todo';
   styleUrls: ['./todo.component.scss']
 })
 export class TodoComponent {
-  @Input() todo!: Todo
+  @Input() todoInput!:TodoModel;
+  @Output() todoDeleted = new EventEmitter<TodoModel>();
+
+  deleteTodo(): void {
+    this.todoDeleted.emit(this.todoInput);
+  }
 }

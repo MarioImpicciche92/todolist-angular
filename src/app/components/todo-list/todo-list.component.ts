@@ -1,7 +1,6 @@
-import { Component, Input } from '@angular/core';
-import { TodoStatus } from 'src/app/models/enums/todo-status';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
-import { Todo } from 'src/app/models/todo';
+import { TodoModel } from 'src/app/models/todo';
 
 @Component({
   selector: 'app-todo-list',
@@ -9,5 +8,10 @@ import { Todo } from 'src/app/models/todo';
   styleUrls: ['./todo-list.component.scss']
 })
 export class TodoListComponent {
-  @Input() todos!: Todo[];
+  @Input() todosInput!:TodoModel[];
+  @Output() deleteTodo = new EventEmitter<TodoModel>;
+
+  deleteTodoFromList($event: TodoModel): void {
+    this.deleteTodo.emit($event);
+  }
 }

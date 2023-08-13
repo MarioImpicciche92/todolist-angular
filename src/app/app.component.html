@@ -1,4 +1,4 @@
 <div class="container p-4">
   <app-create-todo (addedTodo)="addTodoToList($event)"></app-create-todo>
-  <app-todo-list [todos]="todos" ></app-todo-list>
+  <app-todo-list [todosInput]="todos" (deleteTodo)="deleteTOdoForReal($event)"></app-todo-list>
 </div>
