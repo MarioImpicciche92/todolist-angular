@@ -1,0 +1,30 @@
+<h1>Create Todo</h1>
+<form [formGroup]="createTodo">
+    <div class="row">
+        <div class="col-6">
+            <div class="form-group">
+                <label for="title" class="form-label">Title</label>
+                <input type="text" name="title" id="title" class="form-control" formControlName="title">
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="form-group">
+                <label for="status" class="">Status</label>
+                <select name="status" id="status" class="form-select" formControlName="status">
+                    <option [value]="status.key" *ngFor="let status of TodoStatus | keyvalue">{{status.value}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="form-group">
+                <label for="description" class="form-label">Description</label>
+                <input type="text" name="description" id="description" class="form-control" formControlName="description">
+            </div>
+        </div>
+        <div class="col-6 d-flex align-items-end">
+            <div class="form-group ">
+                <input type="submit" class="form-control bnt" value="Add Toto" (click)="addTodo()">
+            </div>
+        </div>
+    </div>
+</form>
