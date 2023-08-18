@@ -10,7 +10,13 @@ export class TodoComponent {
   @Input() todoInput!:TodoModel;
   @Output() todoDeleted = new EventEmitter<TodoModel>();
 
+  @Output() todoUpdate = new EventEmitter<TodoModel>();
+
   deleteTodo(): void {
     this.todoDeleted.emit(this.todoInput);
+  }
+
+  update(): void {
+    this.todoUpdate.emit(this.todoInput);
   }
 }

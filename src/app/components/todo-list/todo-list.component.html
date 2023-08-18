@@ -1,3 +1,4 @@
 <div class="py-5">
-    <app-todo *ngFor="let pippo of todosInput" [todoInput]="pippo" (todoDeleted)="deleteTodoFromList($event)"></app-todo>
+    <app-todo *ngFor="let pippo of todosInput" [todoInput]="pippo" (todoDeleted)="deleteTodoFromList($event)" 
+    (todoUpdate)="updateTodoFromList($event)"></app-todo>
 </div>

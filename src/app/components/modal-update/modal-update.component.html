@@ -1,0 +1,31 @@
+  <!-- Modal -->
+  <div class="modal fade" id="updateTodoModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Update Todo</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form [formGroup]="updateTodoForm">
+            <div class="form-group col-6">
+                <label for="title">Title</label>
+                <input type="text" class="form-control" name="title" id="title" formControlName="title" [value]="todo.title">
+            </div>
+            <div class="form-group col-6">
+                <label for="description">Description</label>
+                <input type="text" class="form-control" name="description" id="description" formControlName="description" [value]="todo.description">
+            </div>
+            <div class="form-group col-6">
+                <label for="status">Status</label>
+                <input type="text" class="form-control" name="status" id="status" formControlName="status" [value]="todo.status">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" (click)="save()" data-bs-dismiss="modal">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
